@@ -5,6 +5,7 @@ import axios from 'axios'
 //ACTION TYPES
 export const FETCH_SMURFS_START = 'FETCH_SMURFS_START';
 export const FETCH_SMURFS_SUCCESS = 'FETCH_SMURFS_SUCCESS';
+export const SMURF_SUBMIT = 'SMURF_SUBMIT'
 
 //ACTION CREATORS
 export const fetchSmurfs = () => {
@@ -21,3 +22,16 @@ export const fetchSmurfs = () => {
             
     }
 }
+
+// export const submitSmurf = (smurfData) => {
+//     return dispatch => {
+//         axios
+//             .post('http://localhost:3333/smurfs/', smurfData)
+//             .then(res => {
+//                 dispatch({ type: SMURF_SUBMIT, payload: res})
+//             })
+//             .catch(err => {
+//                 console.log('Error:', err)
+//             })
+//     }
+// }
