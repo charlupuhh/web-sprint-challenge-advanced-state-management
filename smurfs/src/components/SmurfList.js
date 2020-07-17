@@ -2,6 +2,7 @@ import React, {useEffect} from 'react'
 import {connect} from 'react-redux'
 
 import { fetchSmurfs } from '../store/actions'
+import {SmurfForm} from './SmurfForm'
 
 const SmurfList = (props) => {
     useEffect(() => {
@@ -12,13 +13,16 @@ const SmurfList = (props) => {
 
     return (
         <div>
+            <SmurfForm />
             {props.isLoading && <h4>Loading Smurfs</h4>}
             {props.error && (<p className='error'>Error: {props.error}</p>)}
             {props.smurfs && (
                 <div className="character-container">
                     {props.smurfs.map(smurf => (
                         <div className='smurf'>
-                            <p>{smurf.name}</p>
+                            <h3>Name: {smurf.name}</h3>
+                            <p>Age: {smurf.age}</p>
+                            <p>Height: {smurf.height}</p>
                         </div>
                     ))}
 
@@ -30,7 +34,7 @@ const SmurfList = (props) => {
 const mapStateToProps= state => {
      return {
          isLoading: state.isLoading,
-         charasmurfscters: state.smurfs,
+         smurfs: state.smurfs,
          error: state.error
      }
 }
